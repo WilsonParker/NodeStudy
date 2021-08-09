@@ -1,4 +1,4 @@
-// middleware 몌제
+// Middleware & Route 몌제
 
 // express 모듈 로드
 const express = require('express');
@@ -43,7 +43,7 @@ app.use(morgan('tiny'));
 // error middleware 적용
 app.use(middlewareErr);
 
-// dev : :method :url :status :response-time ms - :res[content-length]
+// dev : Concise output colored by response status for development use
 // :method :url :status :response-time ms - :res[content-length]
 // ex) GET / 304 1.164 ms - -
 app.use(morgan('dev'));

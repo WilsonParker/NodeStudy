@@ -45,25 +45,32 @@ ExpressJS 기초
   > 서버는 HTTP 응답 메시지를 클라이언트에 리턴 합니다.\
   > 응답에는 요청에 대한 완료 상태 정보가 포함되어 있으며 응답 메시지 본문에는 요청된 컨텐츠가 포함되어 있을 수도 있습니다.
 
-Express & Morgan 설치
+Express 환경 설정
 --
 
-### 참고
+> Application 에 대한 package.json 파일을 작성 합니다\
+> [ExpressJS Install](https://expressjs.com/ko/starter/installing.html)
+
+```shell
+$ cd {폴더 경로} 
+$ npm init
+```
+
+Express & Morgan 설치
+--
 
 > [ExpressJS][ExpressJS] \
 > [Morgan][Morgan] : HTTP request logger middleware for node.js
 
 ```shell
-$ npm install express --svae
+$ npm install express --save
 $ npm install morgan
 ```
 
-Middleware 예제
+Middleware & Route 몌제
 --
 
 ```javascript
-// middleware 몌제
-
 // express 모듈 로드
 const express = require('express');
 // 외부 라이브러리 morgan middleware 로드
@@ -107,7 +114,7 @@ app.use(morgan('tiny'));
 // error middleware 적용
 app.use(middlewareErr);
 
-// dev : :method :url :status :response-time ms - :res[content-length]
+// dev : Concise output colored by response status for development use
 // :method :url :status :response-time ms - :res[content-length]
 // ex) GET / 304 1.164 ms - -
 app.use(morgan('dev'));
@@ -126,7 +133,7 @@ app.get('/', function (req, res) {
 ### 실행
 
 ```shell
-$ node 경로/파일이름.js
+$ node {경로}/{파일이름}.js
 ```
 
 ### 결과
