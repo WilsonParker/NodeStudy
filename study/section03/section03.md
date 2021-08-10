@@ -96,6 +96,12 @@ function middlewareFun2(req, res, next) {
 
 function middlewareErr(err, req, res, next) {
     console.log('middlewareErr : ' + err.message);
+    // next 에 error 를 넘겨줄 시 다음 error middleware 를 실행 합니다
+    next(new Error('error occurred2'));
+}
+
+function middlewareErr2(err, req, res, next) {
+    console.log('middlewareErr2 : ' + err.message);
     next();
 }
 
@@ -113,6 +119,7 @@ app.use(morgan('tiny'));
 
 // error middleware 적용
 app.use(middlewareErr);
+app.use(middlewareErr2);
 
 // dev : Concise output colored by response status for development use
 // :method :url :status :response-time ms - :res[content-length]
@@ -142,4 +149,5 @@ $ node {경로}/{파일이름}.js
 > middlewareFun1\
 > middlewareFun2\
 > middlewareErr : error occurred\
+> middlewareErr2 : error occurred2\
 > GET / 304 1.164 ms - -
