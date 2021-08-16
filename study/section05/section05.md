@@ -90,7 +90,7 @@ HTTP 상태코드
     - *504 Gateway Timeout
   > 이 오류 응답은 서버가 게이트웨이 역활을 하고 있으며 적시에 응답을 받을 수 없을 때 주어집니다.
 
-Example
+API Example
 --
 ```javascript
 const express = require('express');

@@ -20,10 +20,10 @@ $ npm i supertest --save-dev
 Run Test
 --
 ```shell
-$ {경로}/node_modules/.bin/mocha {파일이름}.js
+$ {경로}/node_modules/.bin/mocha {파일이름}.spec.js
 ```
 
-Example
+Test Example
 --
 ```javascript
 // const assert = require('assert');
@@ -42,7 +42,7 @@ describe('utils.js module 의 capitalize 함수는 ', () => {
 });
 ```
 
-API Example
+API Test Example
 --
 ```javascript
 // section05 의 example.js 를 이용하여 api test 합니다
