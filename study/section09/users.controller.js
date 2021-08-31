@@ -1,47 +1,38 @@
 const models = require('./models');
-const util = require('./utils');
 
 const index = (req, res, next) => {
-    models.Users.findAll({}).then(users => {
-        res.json(users);
-    })
+    models.Users.findAll()
+        .then(users => {
+            res.json(users); // [{"id":1,"name":"alice"},{"id":2,"name":"bek"},{"id":3,"name":"chris"}]
+        });
 }
 
 const show = (req, res, next) => {
-    models.Users.findOne({
-        where: {
-            id: req.params.id
-        }
-    }).then(user => {
-        res.json(user); // {"id":3,"name":"chris"}
-    })
+    models.Users.findByPk(req.params.id)
+        .then(user => {
+            res.json(user); // {"id":1,"name":"alice"}
+        });
 }
 
 const store = (req, res, next) => {
     models.Users.create({
         name: req.body.name
     }).then(user => {
-        res.json(user);
-        // {"id": 4, "name": "john"}
+        res.json(user); // {"id": 4, "name": "john"}
     });
 }
 
 const update = (req, res, next) => {
-    // request 에 저장된 user 의 이름을 변경 합니다
-    models.Users.findOne({
-        where: {
-            id: req.params.id
-        }
-    }).then(user => {
-        user.name = req.body.name;
-        user.save()
-            .then(() => {
-                res.json(user);
-                // {"id": 3, "name": "mari"}
-            }).catch(err => {
-            res.status(500).end();
-        })
-    })
+    models.Users.findByPk(req.params.id)
+        .then(user => {
+            user.name = req.body.name;
+            user.save()
+                .then(() => {
+                    res.json(user); // {"id": 3, "name": "mari"}
+                }).catch(err => {
+                res.status(500).end();
+            });
+        });
 }
 
 const destroy = (req, res, next) => {
@@ -50,9 +41,8 @@ const destroy = (req, res, next) => {
             id: req.params.id
         }
     }).then(() => {
-        index(req, res);
-        // [{"id": 2, "name": "bek"}, {"id": 3, "name": "chris"}, {"id": 4, "name": "john"}]
-    })
+        index(req, res); // [{"id": 2, "name": "bek"}, {"id": 3, "name": "chris"}, {"id": 4, "name": "john"}]
+    });
 }
 
 module.exports = {

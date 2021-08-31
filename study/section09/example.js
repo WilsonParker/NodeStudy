@@ -10,8 +10,11 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+// route 를 등록합니다
 app.use('/users', users);
 
+
+// DB 가 연결되면 server 를 실행 합니다
 syncDB().then(() => {
     console.log('Sync database');
     app.listen(port, () => {
