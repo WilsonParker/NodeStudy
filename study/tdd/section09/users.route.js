@@ -4,11 +4,6 @@ const {check, oneOf} = require('express-validator');
 const util = require('./utils');
 const controller = require('./users.controller');
 
-// user 를 생성 합니다
-util.createUser('alice');
-util.createUser('bek');
-util.createUser('chris');
-
 router.get('/', controller.index);
 
 router.get('/:id',
