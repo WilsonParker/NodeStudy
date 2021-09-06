@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./study/section09/example.js",
-    "test": "NODE_ENV=test mocha study/section09/users.spec.js -w"
+    "start": "node study/tdd/section09/example.js",
+    "test": "NODE_ENV=test mocha study/tdd/section09/users.spec.js -w"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

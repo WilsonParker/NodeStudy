@@ -44,9 +44,10 @@ describe('utils.js module 의 capitalize 함수는 ', () => {
 
 API Test Example
 --
+
 ```javascript
 // section05 의 example.js 를 이용하여 api test 합니다
-const app = require('../section05/example');
+const app = require('./example');
 const api = require('supertest');
 const assert = require('assert');
 
