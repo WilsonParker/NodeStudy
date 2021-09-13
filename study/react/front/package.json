@@ -11,7 +11,10 @@
   "author": "NodeStudy",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^4.6.4",
+    "antd": "^4.16.13",
     "next": "^11.1.2",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "styled-components": "^5.3.1"
   }
 }
